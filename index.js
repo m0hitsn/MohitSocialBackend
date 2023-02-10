@@ -8,6 +8,7 @@ const authRoute = require("./routes/auth");
 const postRoute = require("./routes/post");
 const conversationRoute = require("./routes/Conversation");
 const messageRoute = require("./routes/Messages");
+const PORT = process.env.PORT || 8000;
 require("./mongoDB");
 const multer = require("multer");
 const path = require("path");
@@ -78,6 +79,6 @@ app.use("/api/message", messageRoute);
 
 
 
-app.listen(8000, () => {
+app.listen(PORT, () => {
   console.log("Backend Server is running");
 });
