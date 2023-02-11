@@ -12,9 +12,12 @@ const PORT = process.env.PORT || 8000;
 require("./mongoDB");
 const multer = require("multer");
 const path = require("path");
-var cookieParser = require('cookie-parser')
+const cors = require("cors");
 
-app.use(cookieParser())
+app.use(cors({
+  origin: "http://localhost:3000"
+}))
+
 
 app.use("/images", express.static(path.join(__dirname, "public/images")));
 
