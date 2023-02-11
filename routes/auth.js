@@ -1,8 +1,6 @@
 const router = require("express").Router();
 const bcrypt = require("bcrypt");
 const User = require("../models/user");
-var jwt = require('jsonwebtoken');
-const privateKey = process.env.PRIVATE_KEY;
 
 
 router.post("/register", async (req, res) => {
@@ -20,8 +18,6 @@ router.post("/register", async (req, res) => {
         // save new user
         const user = await newUser.save();
 
-        const token = jwt.sign({ user: newUser }, privateKey);
-        res.cookie("jwtToken", token,{httpOnly:true})
         res.status(200).json(newUser);
 
     } catch (error) {
@@ -43,8 +39,6 @@ router.post("/login", async (req, res) => {
             return res.status(400).json("invalid password");
         }
 
-        const token = jwt.sign({ user: finduser }, privateKey);
-        res.cookie("jwtToken", token ,{httpOnly:true})
         res.status(200).json(finduser);
 
     } catch (error) {

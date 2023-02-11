@@ -1,7 +1,6 @@
 const router = require("express").Router();
 const User = require("../models/user");
 const bcrypt = require("bcrypt");
-const AuthToken = require("../middleware/authtoken");
 
 
 // get all user for search 
