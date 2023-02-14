@@ -30,6 +30,7 @@ app.get('/', function (req, res) {
 app.use(express.json());
 app.use(morgan("common"));
 app.use(helmet());
+app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 
 
 // for post img upload
