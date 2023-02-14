@@ -18,6 +18,7 @@ app.use(cors({
   origin: "https://mohitsocial.netlify.app"
 }))
 
+app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }))
 
 app.use("/images", express.static(path.join(__dirname, "public/images")));
 
