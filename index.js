@@ -15,12 +15,11 @@ const path = require("path");
 const cors = require("cors");
 
 app.use(cors({
-  origin: "https://mohitsocial.netlify.app"
+  origin: "https://mohitsocial.netlify.app/"
 }))
 
 
 app.use("/images", express.static(path.join(__dirname, "public/images")));
-
 
 app.get('/', function (req, res) {
   res.send('Hello World')
@@ -83,5 +82,5 @@ app.use("/api/message", messageRoute);
 
 
 app.listen(PORT, () => {
-  console.log("Backend Server is running");
+  console.log("Backend Server is running", PORT);
 });
